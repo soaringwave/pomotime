@@ -27,10 +27,21 @@ class TotalTimeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(totalTime),
+            Text(
+              totalTime,
+              style: const TextStyle(
+                fontSize: 50,
+              ),
+            ),
+            const SizedBox(
+              height: 40,
+            ),
             IconButton(
               onPressed: () {},
-              icon: const Icon(Icons.highlight_remove),
+              icon: const Icon(
+                Icons.highlight_remove,
+                size: 30,
+              ),
             ),
           ],
         ),
