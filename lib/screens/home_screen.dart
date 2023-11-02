@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:pomotimer/screens/total_time_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,8 +16,29 @@ class _HomeScreenState extends State<HomeScreen> {
   int leftTime = 10;
   int totalTime = 0;
   late Timer timer;
+  late SharedPreferences prefs;
   bool isTick = false;
   bool isWorking = true;
+
+  @override
+  void initState() {
+    super.initState();
+    initPrefs();
+  }
+
+  void initPrefs() async {
+    prefs = await SharedPreferences.getInstance();
+    if (prefs.getInt('totalTime') != null) {
+      setState(() {
+        totalTime = prefs.getInt('totalTime')!;
+      });
+    } else {
+      await prefs.setInt('totalTime', 0);
+      setState(() {
+        totalTime = 0;
+      });
+    }
+  }
 
   void onStartPressed() {
     setState(() {
