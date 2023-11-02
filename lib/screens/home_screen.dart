@@ -11,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int setTime = 1500;
+  int setTime = 100;
   int leftTime = 10;
   int totalTime = 0;
   late Timer timer;
@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   String getTimeFormat(int sec) {
-    return Duration(seconds: sec).toString().substring(2, 7);
+    return Duration(seconds: sec).toString().substring(0, 7);
   }
 
   @override
@@ -107,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                       child: Text(
-                        getTimeFormat(leftTime),
+                        getTimeFormat(leftTime).substring(2),
                         style: const TextStyle(
                           fontSize: 40,
                         ),
