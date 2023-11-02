@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int setTime = 100;
+  int setTime = 10;
   int leftTime = 10;
   int totalTime = 0;
   late Timer timer;
@@ -38,6 +38,15 @@ class _HomeScreenState extends State<HomeScreen> {
         totalTime = 0;
       });
     }
+  }
+
+  void addTotalTime(int addTime) async {
+    prefs = await SharedPreferences.getInstance();
+    totalTime = prefs.getInt('totalTime')!;
+    setState(() {
+      totalTime += addTime;
+    });
+    await prefs.setInt('totalTime', totalTime);
   }
 
   void onStartPressed() {
@@ -67,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void onTick(Timer timer) {
     if (leftTime == 0) {
-      totalTime += setTime;
+      addTotalTime(setTime);
       timer.cancel();
       setState(() {
         leftTime = setTime;
