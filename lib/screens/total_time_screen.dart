@@ -31,6 +31,13 @@ class _TotalTimeScreenState extends State<TotalTimeScreen> {
     }
   }
 
+  void onResetPressedInTotalTime() async {
+    setState(() {
+      widget.totalTime = 0;
+    });
+    await widget.prefs.setInt('totalTime', 0);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +68,7 @@ class _TotalTimeScreenState extends State<TotalTimeScreen> {
               height: 40,
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: onResetPressedInTotalTime,
               icon: const Icon(
                 Icons.highlight_remove,
                 size: 30,
