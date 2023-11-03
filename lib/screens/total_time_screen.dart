@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pomotimer/functions/get_time_format.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class TotalTimeScreen extends StatefulWidget {
@@ -51,7 +52,7 @@ class _TotalTimeScreenState extends State<TotalTimeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              widget.totalTime,
+              getTimeFormat(widget.totalTime),
               style: const TextStyle(
                 fontSize: 50,
               ),

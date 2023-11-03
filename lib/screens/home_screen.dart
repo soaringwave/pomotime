@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pomotimer/functions/get_time_format.dart';
 import 'dart:async';
 
 import 'package:pomotimer/screens/total_time_screen.dart';
@@ -87,10 +88,6 @@ class _HomeScreenState extends State<HomeScreen> {
         leftTime -= 1;
       });
     }
-  }
-
-  String getTimeFormat(int sec) {
-    return Duration(seconds: sec).toString().substring(0, 7);
   }
 
   @override
