@@ -1,11 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class TotalTimeScreen extends StatelessWidget {
-  const TotalTimeScreen({
+class TotalTimeScreen extends StatefulWidget {
+  TotalTimeScreen({
     super.key,
-    required this.totalTime,
   });
-  final String totalTime;
+  int totalTime = 0;
+  late SharedPreferences prefs;
+
+  @override
+  State<TotalTimeScreen> createState() => _TotalTimeScreenState();
+}
+
+class _TotalTimeScreenState extends State<TotalTimeScreen> {
+  @override
+  void initState() {
+    initPrefs();
+    super.initState();
+  }
+
+  void initPrefs() async {
+    widget.prefs = await SharedPreferences.getInstance();
+    if (widget.prefs.getInt('totalTime') != null) {
+      setState(() {
+        widget.totalTime = widget.prefs.getInt('totalTime')!;
+      });
+    } else {
+      widget.prefs.setInt('totalTime', 0);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +51,7 @@ class TotalTimeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              totalTime,
+              widget.totalTime,
               style: const TextStyle(
                 fontSize: 50,
               ),
