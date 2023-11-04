@@ -72,7 +72,7 @@ class _TotalTimeScreenState extends State<TotalTimeScreen> {
               childWidget: IconButton(
                 onPressed: onResetPressedInTotalTime,
                 icon: const Icon(
-                  Icons.highlight_remove,
+                  Icons.clear_rounded,
                   size: 30,
                 ),
               ),
