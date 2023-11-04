@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pomotimer/functions/get_time_format.dart';
+import 'package:pomotimer/widgets/icon_button_container.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class TotalTimeScreen extends StatefulWidget {
@@ -67,11 +68,13 @@ class _TotalTimeScreenState extends State<TotalTimeScreen> {
             const SizedBox(
               height: 40,
             ),
-            IconButton(
-              onPressed: onResetPressedInTotalTime,
-              icon: const Icon(
-                Icons.highlight_remove,
-                size: 30,
+            IconButtonContainer(
+              childWidget: IconButton(
+                onPressed: onResetPressedInTotalTime,
+                icon: const Icon(
+                  Icons.highlight_remove,
+                  size: 30,
+                ),
               ),
             ),
           ],

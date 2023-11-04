@@ -3,6 +3,7 @@ import 'package:pomotimer/functions/get_time_format.dart';
 import 'dart:async';
 
 import 'package:pomotimer/screens/total_time_screen.dart';
+import 'package:pomotimer/widgets/icon_button_container.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -149,25 +150,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      alignment: Alignment.center,
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(150),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
-                            offset: const Offset(
-                              0,
-                              5,
-                            ),
-                            blurRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: IconButton(
+                    IconButtonContainer(
+                      childWidget: IconButton(
                         onPressed: isTick ? onPausePressed : onStartPressed,
                         icon: Icon(
                           isTick
@@ -177,25 +161,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 50,
-                      width: 50,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(150),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
-                            offset: const Offset(
-                              0,
-                              5,
-                            ),
-                            blurRadius: 10,
-                          ),
-                        ],
-                      ),
-                      child: IconButton(
+                    IconButtonContainer(
+                      childWidget: IconButton(
                         onPressed: onResetPressed,
                         icon: const Icon(
                           Icons.square_rounded,
