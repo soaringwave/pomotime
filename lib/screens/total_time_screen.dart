@@ -76,6 +76,7 @@ class _TotalTimeScreenState extends State<TotalTimeScreen> {
                   size: 30,
                 ),
               ),
+              shadowColor: Colors.black.withOpacity(0.3),
             ),
           ],
         ),

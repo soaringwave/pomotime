@@ -22,6 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
   late SharedPreferences prefs;
   bool isTick = false;
   bool isWorking = true;
+  Color workTimeShadowColor = const Color.fromARGB(156, 255, 183, 144);
+  Color restTimeShadowColor = const Color.fromARGB(156, 144, 209, 255);
 
   @override
   void initState() {
@@ -131,7 +133,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(150),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
+                            color: isWorking
+                                ? workTimeShadowColor
+                                : restTimeShadowColor,
                             offset: const Offset(
                               0,
                               5,
@@ -165,6 +169,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           size: 30,
                         ),
                       ),
+                      shadowColor:
+                          isWorking ? workTimeShadowColor : restTimeShadowColor,
                     ),
                     IconButtonContainer(
                       childWidget: IconButton(
@@ -174,6 +180,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           size: 20,
                         ),
                       ),
+                      shadowColor:
+                          isWorking ? workTimeShadowColor : restTimeShadowColor,
                     ),
                   ],
                 )
@@ -199,7 +207,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.3),
+                      color:
+                          isWorking ? workTimeShadowColor : restTimeShadowColor,
                       offset: const Offset(0, -1),
                       blurRadius: 10,
                     )
