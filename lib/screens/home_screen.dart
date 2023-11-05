@@ -14,7 +14,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int setTime = 10;
+  int workTime = 10;
+  int restTime = 13;
   int leftTime = 10;
   int totalTime = 0;
   late Timer timer;
@@ -72,16 +73,20 @@ class _HomeScreenState extends State<HomeScreen> {
     timer.cancel();
     setState(() {
       isTick = false;
-      leftTime = setTime;
+      isWorking = !isWorking;
+      leftTime = isWorking ? workTime : restTime;
     });
   }
 
   void onTick(Timer timer) {
     if (leftTime == 0) {
-      addTotalTime(setTime);
+      if (isWorking == true) {
+        addTotalTime(workTime);
+      }
       timer.cancel();
+      isWorking = !isWorking;
       setState(() {
-        leftTime = setTime;
+        leftTime = isWorking ? workTime : restTime;
         isTick = false;
       });
     } else {
