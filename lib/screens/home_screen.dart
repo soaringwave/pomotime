@@ -183,6 +183,17 @@ class _HomeScreenState extends State<HomeScreen> {
                       shadowColor:
                           isWorking ? workTimeShadowColor : restTimeShadowColor,
                     ),
+                    IconButtonContainer(
+                      childWidget: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.timer_outlined,
+                          size: 30,
+                        ),
+                      ),
+                      shadowColor:
+                          isWorking ? workTimeShadowColor : restTimeShadowColor,
+                    ),
                   ],
                 )
               ],
