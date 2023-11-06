@@ -161,12 +161,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     IconButtonContainer(
                       childWidget: IconButton(
-                        onPressed: isTick ? onPausePressed : onStartPressed,
-                        icon: Icon(
-                          isTick
-                              ? Icons.pause_rounded
-                              : Icons.play_arrow_rounded,
-                          size: 30,
+                        onPressed: onResetPressed,
+                        icon: const Icon(
+                          Icons.square_rounded,
+                          size: 17,
                         ),
                       ),
                       shadowColor:
@@ -174,10 +172,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     IconButtonContainer(
                       childWidget: IconButton(
-                        onPressed: onResetPressed,
-                        icon: const Icon(
-                          Icons.square_rounded,
-                          size: 20,
+                        onPressed: isTick ? onPausePressed : onStartPressed,
+                        icon: Icon(
+                          isTick
+                              ? Icons.pause_rounded
+                              : Icons.play_arrow_rounded,
+                          size: 30,
                         ),
                       ),
                       shadowColor:
