@@ -16,6 +16,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int workTime = 10;
   int restTime = 13;
+  int addTime = 10;
   int leftTime = 10;
   int totalTime = 0;
   late Timer timer;
@@ -58,6 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {
       isTick = true;
     });
+    addTime = workTime;
     timer = Timer.periodic(
       const Duration(seconds: 1),
       onTick,
@@ -83,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void onTick(Timer timer) {
     if (leftTime == 0) {
       if (isWorking == true) {
-        addTotalTime(workTime);
+        addTotalTime(addTime);
       }
       timer.cancel();
       isWorking = !isWorking;
