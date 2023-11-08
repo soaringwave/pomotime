@@ -16,7 +16,7 @@ class TotalTimeScreen extends StatefulWidget {
 }
 
 class _TotalTimeScreenState extends State<TotalTimeScreen> {
-  Duration _duration = const Duration(hours: 0, minutes: 0);
+  Duration _duration = const Duration(hours: 0, minutes: 25);
 
   @override
   void initState() {
@@ -83,6 +83,7 @@ class _TotalTimeScreenState extends State<TotalTimeScreen> {
             ),
             DurationPicker(
               duration: _duration,
+              baseUnit: BaseUnit.minute,
               onChange: (val) {
                 setState(() => _duration = val);
               },
