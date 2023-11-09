@@ -1,3 +1,4 @@
+import 'package:duration_picker/duration_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:pomotimer/functions/get_time_format.dart';
 import 'dart:async';
@@ -187,7 +188,15 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     IconButtonContainer(
                       childWidget: IconButton(
-                        onPressed: () {},
+                        onPressed: () async {
+                          var resultingDuration = await showDurationPicker(
+                            context: context,
+                            initialTime: const Duration(minutes: 25),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content:
+                                  Text('Chose duration: $resultingDuration')));
+                        },
                         icon: const Icon(
                           Icons.timer_outlined,
                           size: 30,

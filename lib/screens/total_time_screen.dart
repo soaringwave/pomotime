@@ -1,4 +1,3 @@
-import 'package:duration_picker/duration_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:pomotimer/functions/get_time_format.dart';
 import 'package:pomotimer/widgets/icon_button_container.dart';
@@ -16,7 +15,7 @@ class TotalTimeScreen extends StatefulWidget {
 }
 
 class _TotalTimeScreenState extends State<TotalTimeScreen> {
-  Duration _duration = const Duration(hours: 0, minutes: 25);
+  final Duration _duration = const Duration(hours: 0, minutes: 25);
 
   @override
   void initState() {
@@ -80,14 +79,6 @@ class _TotalTimeScreenState extends State<TotalTimeScreen> {
                 ),
               ),
               shadowColor: Colors.black.withOpacity(0.3),
-            ),
-            DurationPicker(
-              duration: _duration,
-              baseUnit: BaseUnit.minute,
-              onChange: (val) {
-                setState(() => _duration = val);
-              },
-              snapToMins: 5.0,
             ),
           ],
         ),
