@@ -193,9 +193,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             context: context,
                             initialTime: const Duration(minutes: 25),
                           );
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
                               content:
-                                  Text('Chose duration: $resultingDuration')));
+                                  Text('Chose duration: $resultingDuration'),
+                            ),
+                          );
                         },
                         icon: const Icon(
                           Icons.timer_outlined,
